@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C5A23074-1C37-45DD-9D28-99F79D54000C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\packages\TGridExtendedColumns.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TGridExtendedColumnsSample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TGridExtendedColumns">
+        <MSBuild Projects="..\packages\TGridExtendedColumns.dproj"/>
+    </Target>
+    <Target Name="TGridExtendedColumns:Clean">
+        <MSBuild Projects="..\packages\TGridExtendedColumns.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TGridExtendedColumns:Make">
+        <MSBuild Projects="..\packages\TGridExtendedColumns.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TGridExtendedColumnsSample">
+        <MSBuild Projects="TGridExtendedColumnsSample.dproj"/>
+    </Target>
+    <Target Name="TGridExtendedColumnsSample:Clean">
+        <MSBuild Projects="TGridExtendedColumnsSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TGridExtendedColumnsSample:Make">
+        <MSBuild Projects="TGridExtendedColumnsSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TGridExtendedColumns;TGridExtendedColumnsSample"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TGridExtendedColumns:Clean;TGridExtendedColumnsSample:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TGridExtendedColumns:Make;TGridExtendedColumnsSample:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
