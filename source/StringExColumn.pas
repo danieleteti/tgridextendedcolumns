@@ -19,6 +19,8 @@ type
       write SetHorizontalAlign;
   end;
 
+{updated in feature branch}
+
 implementation
 
 uses
